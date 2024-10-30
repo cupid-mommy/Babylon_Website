@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切換圖片示例</title>
+    <style>
+        /* 定義圖片的樣式 */
+           .fullscreen-image {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-image: url('https://i.imgur.com/B5qAdLk.jpg');
+        }
+        .image-container img {
+            display: none; /* 預設隱藏 */
+            width: 100%;   /* 圖片寬度 */
+            height: auto;
+        }
+        .image-container img.active {
+            display: block; /* 只顯示被選擇的圖片 */
+            width: 20%;
+            height: 20%;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+                .content-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 250px;
+            gap: 30px;
+        }
+        .row {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-side,.image-side2,.image-side3 {
+            flex: 1;
+            background-image: url('https://i.imgur.com/B5qAdLk.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 500px;
+            margin-right: 20%;
+        }
+        .text-side,.text-side2,.text-side3 {
+            flex: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="fullscreen-image" id="fullscreenImage">
+        <div class="image-container">
+            <img id="image1" src="https://i.imgur.com/B5qAdLk.jpg" alt="Image 1" class="active">
+            <img id="image2" src="https://i.imgur.com/4pTWYr0.jpg" alt="Image 2">
+        </div>
+        <div class="button-container">
+            <button onclick="showImage('image1')">顯示圖片 1</button>
+            <button onclick="showImage('image2')">顯示圖片 2</button>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <div class="row">
+            <div class="image-side"></div>
+            <div class="text-side">
+                <h2>標題</h2>
+                <p>這是文字說明的範例。可以根據需要添加更多的文字內容。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-side2">
+                <h2>標題</h2>
+                <p>這是文字說明的範例。可以根據需要添加更多的文字內容。</p>
+            </div>
+            <div class="image-side2"></div>
+        </div>
+        <div class="row">
+            <div class="image-side"></div>
+            <div class="text-side">
+                <h2>標題</h2>
+                <p>這是文字說明的範例。可以根據需要添加更多的文字內容。</p>
+            </div>
+        </div>
+    </div>
+
+<script>
+    function showImage(imageId) {
+        // 取得所有圖片並移除 active 類別
+        const images = document.querySelectorAll('.image-container img');
+        images.forEach(img => img.classList.remove('active'));
+
+        // 顯示指定的圖片
+        document.getElementById(imageId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
