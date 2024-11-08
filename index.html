@@ -37,7 +37,8 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            background-image: url('https://i.imgur.com/B5qAdLk.jpg');
+            background-color: white;
+            /*background-image: url('https://i.imgur.com/B5qAdLk.jpg');*/
             /* 全螢幕圖 */
             z-index: 1;
             /* 全螢幕圖片在下層 */
@@ -52,12 +53,14 @@
         .fullscreen-image .image-link {
             position: relative;
         }
+
         .fullscreen-image .android img,
         .fullscreen-image .ios img {
-            width: 33%; /* 33% 設定為您所需的寬度百分比 */
+            width: 33%;
+            /* 33% 設定為您所需的寬度百分比 */
             height: auto;
         }
-        
+
         .fullscreen-image .android {
             position: absolute;
             left: 30%;
@@ -66,7 +69,7 @@
 
         .fullscreen-image .ios {
             position: absolute;
-            right: 15%;
+            right: 10%;
             /* 調整 iOS 圖標的水平位置 */
         }
 
@@ -109,46 +112,14 @@
             justify-content: center;
             align-items: center;
         }
+.image-side img,
+.image-side2 img,
+.image-side3 img,
+.image-side4 img {
+    width: 40%; /* 讓圖片寬度佔滿容器 */
+    height: auto; /* 高度自動調整比例 */
+}
 
-        .image-side {
-            flex: 1;
-            background-image: url('https://i.imgur.com/B5qAdLk.jpg');
-            /* 下面第一張圖 */
-            background-size: contain;
-            background-repeat: no-repeat;
-            height: 500px;
-            margin-right: 15%;
-        }
-
-        .image-side2 {
-            flex: 1;
-            background-image: url('https://i.imgur.com/B5qAdLk.jpg');
-            /* 下面第二張圖 */
-            background-size: contain;
-            background-repeat: no-repeat;
-            height: 500px;
-            margin-right: 5%;
-        }
-
-        .image-side3 {
-            flex: 1;
-            background-image: url('https://i.imgur.com/B5qAdLk.jpg');
-            /* 下面第三張圖 */
-            background-size: contain;
-            background-repeat: no-repeat;
-            height: 500px;
-            margin-right: 15%;
-        }
-
-        .image-side4 {
-            flex: 1;
-            background-image: url('https://i.imgur.com/B5qAdLk.jpg');
-            /* 下面第四張圖 */
-            background-size: contain;
-            background-repeat: no-repeat;
-            height: 500px;
-            margin-right: 5%;
-        }
 
         .text-side,
         .text-side2,
@@ -175,60 +146,151 @@
         }
 
         @media (max-width: 576px) {
-            .button-container button {
-                padding: 10px 20px;
-                font-size: 16px;
-                cursor: pointer;
-                background-color: rgba(0, 0, 0, 0.6);
-                color: white;
-                border: none;
-                border-radius: 5px;
+            /* 調整 Android 和 iOS 圖標的位置和大小 */
+            .fullscreen-image .ios img,
+            .fullscreen-image .android img {
+                width: 50%;
+                /* 調整為螢幕寬度的一半 */
+                height: auto;
             }
-            .fullscreen-image .ios img {
-                width: 33%; /* 33% 設定為您所需的寬度百分比 */
-                height: 150%;
-            }
-        
+
             .fullscreen-image .android {
                 position: absolute;
-                left: 30%;
-             /* 調整 Android 圖標的水平位置 */
+                left: 10%;
+                /* 調整 Android 圖標的水平位置 */
+                bottom: 10px;
+                /* 增加距底部的間距 */
             }
 
-        .fullscreen-image .ios {
-            position: absolute;
-            right: 0%;
-            /* 調整 iOS 圖標的水平位置 */
-        }        
+            .fullscreen-image .ios {
+                position: absolute;
+                right: 10%;
+                /* 調整 iOS 圖標的水平位置 */
+                bottom: 10px;
+                /* 增加距底部的間距 */
+            }
+
+            /* 調整下方四張圖片的排列方式 */
             .content-section {
-                display: flex;
                 flex-direction: column;
                 align-items: center;
-                padding: 1%;
-                gap: 15px;
+                gap: 20px;
+                /* 圖片之間的間距 */
             }
-            .row {
-                display: flex;
-                flex-direction: column;
-                /* 設置為垂直排列 */
-                width: 100%;
 
+            .row {
+		display:flex;
+                flex-direction: column;
                 align-items: center;
+                width: 100%;
             }
+
+    .image-side img,
+    .image-side2 img,
+    .image-side3 img,
+    .image-side4 img {
+        width: 100%; /* 手機上圖片佔滿容器寬度 */
+
+        height: auto; /* 保持圖片比例 */
+    }
+    .image-side,
+    .image-side2,
+    .image-side3,
+    .image-side4 {
+        order: 2; /* 強制圖片區塊排在第二位 */
+        width: 100%;
+    }
+
+            /* 調整文字側邊的寬度 */
+            .text-side,
+            .text-side2,
+            .text-side3,
+            .text-side4 {
+order:1
+                text-align: center;
+                padding: 0 10px;
+                /* 增加文字左右間距 */
+                margin-top: 10px;
+                /* 增加文字與圖片間的間距 */
+            }
+
             .learn1 {
                 position: relative;
-                left: 15%;
+                left: 0;
+                text-align: center;
             }
-        .image-side {
-            flex: 1;
-            background-image: url('https://i.imgur.com/B5qAdLk.jpg');
-            /* 下面第一張圖 */
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 150px;
-            margin-right: 1%;
         }
-            
+                @media (max-width: 992px) {
+            /* 調整 Android 和 iOS 圖標的位置和大小 */
+            .fullscreen-image .ios img,
+            .fullscreen-image .android img {
+                width: 50%;
+                /* 調整為螢幕寬度的一半 */
+                height: auto;
+            }
+
+            .fullscreen-image .android {
+                position: absolute;
+                left: 10%;
+                /* 調整 Android 圖標的水平位置 */
+                bottom: 10px;
+                /* 增加距底部的間距 */
+            }
+
+            .fullscreen-image .ios {
+                position: absolute;
+                right: 10%;
+                /* 調整 iOS 圖標的水平位置 */
+                bottom: 10px;
+                /* 增加距底部的間距 */
+            }
+
+            /* 調整下方四張圖片的排列方式 */
+            .content-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                /* 圖片之間的間距 */
+            }
+
+            .row {
+		display:flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+    .image-side img,
+    .image-side2 img,
+    .image-side3 img,
+    .image-side4 img {
+        width: 100%; /* 手機上圖片佔滿容器寬度 */
+        height: auto; /* 保持圖片比例 */
+    }
+    .image-side,
+    .image-side2,
+    .image-side3,
+    .image-side4 {
+        width: 100%;
+    }
+
+            /* 調整文字側邊的寬度 */
+            .text-side,
+            .text-side2,
+            .text-side3,
+            .text-side4 {
+                text-align: center;
+                padding: 0 10px;
+                /* 增加文字左右間距 */
+                margin-top: 10px;
+                /* 增加文字與圖片間的間距 */
+            }
+
+            .learn1 {
+                position: relative;
+                left: 0;
+                text-align: center;
+            }
         }
     </style>
     <script type="text/javascript">
@@ -258,7 +320,7 @@
 <body>
 
     <div class="header">
-        <img src="https://i.imgur.com/4pTWYr0.jpg" alt="Logo">
+        <img src="https://i.imgur.com/jcTNRKH.jpg" alt="Logo">
 
         <!-- 語言選擇下拉選單 -->
         <select id="languageSelect">
@@ -276,11 +338,11 @@
             <img src="https://i.imgur.com/aqYh1JR.png" alt="ios" >
         </a>
     </div>
-    
+
     <br>
     <div style="border:2px solid "></div>
     <br><br>
-    
+
     <div class="learn">
         <h1 id="title" class="lang-tw">我要學</h1>
         <h1 id="title" class="lang-en" style="display: none;">I want to learn</h1>
@@ -317,62 +379,70 @@
     <div style="border:3px solid "></div>
 
     <div class="content-section">
+<div class="row">
+    <div class="image-side">
+        <img src="https://i.imgur.com/7sS2Cxj.png" alt="Image Side 1">
+    </div>
+    <div class="text-side">
+        <h2 class="lang-tw">標題</h2>
+        <h2 class="lang-en" style="display: none;">Title</h2>
+        <h2 class="lang-ja" style="display: none;">タイトル</h2>
+
+        <p class="lang-tw">這是文字說明的範例。可以根據需要添加更多的文字內容。</p>
+        <p class="lang-en" style="display: none;">This is an example of text description. You can add more text content as needed.</p>
+        <p class="lang-ja" style="display: none;">これは説明文の例です。必要に応じてさらに内容を追加できます。</p>
+    </div>
+</div>
         <div class="row">
-            <div class="image-side"></div>
-            <div class="text-side">
+            <div class="text-side2">
                 <h2 class="lang-tw">標題</h2>
                 <h2 class="lang-en" style="display: none;">Title</h2>
                 <h2 class="lang-ja" style="display: none;">タイトル</h2>
-                
+
+                <p class="lang-tw">這是文字說明的範例。可以根據需要添加更多的文字內容。</p>
+                <p class="lang-en" style="display: none;">This is an example of text description. You can add more text content as needed.</p>
+                <p class="lang-ja" style="display: none;">これは説明文の例です。必要に応じてさらに内容を追加できます。</p>
+            </div>
+    <div class="image-side">
+        <img src="https://i.imgur.com/uaCF4zt.png" alt="Image Side 2">
+    </div>
+        </div>
+        <div class="row">
+    <div class="image-side">
+        <img src="https://i.imgur.com/ppDXZdo.png" alt="Image Side 3">
+    </div>
+            <div class="text-side3">
+                <h2 class="lang-tw">標題</h2>
+                <h2 class="lang-en" style="display: none;">Title</h2>
+                <h2 class="lang-ja" style="display: none;">タイトル</h2>
+
                 <p class="lang-tw">這是文字說明的範例。可以根據需要添加更多的文字內容。</p>
                 <p class="lang-en" style="display: none;">This is an example of text description. You can add more text content as needed.</p>
                 <p class="lang-ja" style="display: none;">これは説明文の例です。必要に応じてさらに内容を追加できます。</p>
             </div>
         </div>
         <div class="row">
-            <div class="text-side2">
-                <h2 class="lang-tw">標題</h2>
-                <h2 class="lang-en" style="display: none;">Title</h2>
-                <h2 class="lang-ja" style="display: none;">タイトル</h2>
-                
-                <p class="lang-tw">這是文字說明的範例。可以根據需要添加更多的文字內容。</p>
-                <p class="lang-en" style="display: none;">This is an example of text description. You can add more text content as needed.</p>
-                <p class="lang-ja" style="display: none;">これは説明文の例です。必要に応じてさらに内容を追加できます。</p>
-            </div>
-            <div class="image-side2"></div>            
-        </div>        
-        <div class="row">
-            <div class="image-side3"></div>
-            <div class="text-side3">
-                <h2 class="lang-tw">標題</h2>
-                <h2 class="lang-en" style="display: none;">Title</h2>
-                <h2 class="lang-ja" style="display: none;">タイトル</h2>
-                
-                <p class="lang-tw">這是文字說明的範例。可以根據需要添加更多的文字內容。</p>
-                <p class="lang-en" style="display: none;">This is an example of text description. You can add more text content as needed.</p>
-                <p class="lang-ja" style="display: none;">これは説明文の例です。必要に応じてさらに内容を追加できます。</p>
-            </div>
-        </div>        
-        <div class="row">
             <div class="text-side4">
                 <h2 class="lang-tw">標題</h2>
                 <h2 class="lang-en" style="display: none;">Title</h2>
                 <h2 class="lang-ja" style="display: none;">タイトル</h2>
-                
+
                 <p class="lang-tw">這是文字說明的範例。可以根據需要添加更多的文字內容。</p>
                 <p class="lang-en" style="display: none;">This is an example of text description. You can add more text content as needed.</p>
                 <p class="lang-ja" style="display: none;">これは説明文の例です。必要に応じてさらに内容を追加できます。</p>
             </div>
-            <div class="image-side4"></div>            
-        </div>             
+    <div class="image-side">
+        <img src="https://i.imgur.com/dh7BLq0.png" alt="Image Side 4">
+    </div>
+        </div>
 
     </div>
 
     <script>
         function showImage(imageId, language) {
-            document.getElementById("title").innerText = $("#languageSelect").val() === 'tw' ? "我要學" + language : 
-                                                          $("#languageSelect").val() === 'en' ? "I want to learn " + language : 
-                                                          "学びたい " + language;
+            document.getElementById("title").innerText = $("#languageSelect").val() === 'tw' ? "我要學" + language :
+                $("#languageSelect").val() === 'en' ? "I want to learn " + language :
+                "学びたい " + language;
             const images = document.querySelectorAll('.image-container img');
             images.forEach(img => {
                 img.classList.remove('active');
